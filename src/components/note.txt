@@ -1,0 +1,96 @@
+api call in js
+--------------
+
+AJAX
+ -XMLhttp
+ -fetch
+ -asynch await
+
+
+ useEffect : An hook used in place of ngOnInit(in angular).
+
+ redirection in react
+ --------------------
+
+ react-router-dom
+ instaall -- npm i react-router-dom
+
+ import {
+     BrowserRouter as router - all routing need components
+     ,Routes   - to set paths for each component
+     ,Route    - more than one path
+      } from 'react-router-dom';
+
+useParams :- hook used to access params from component url
+
+REDUX   (important in react)
+-----
+coupling : many connection between parent and child component
+
+props drilling : In coupling,if any intermediate component have any errors or 
+                 all other childs will not work.This process is called 
+                 props drilling.
+
+To avoid props drilling we need to reduce coupling and make all the components independent,
+For this React introduced a new technology :- state management technology - REDUX
+
+
+REDUX process
+-------------
+
+-Create a new js file to keep the states,all the components can access the js file
+
+-the components can access the datas from the js file,but they can't update data in js file
+
+   ------------                     ------------------
+     reducer    (a)                     
+   ------------                          data.js         (b)
+                                         
+                                         state
+                                                                               (b) --> (c) 
+                                   -------------------                         (c) --> (d)
+                                                                               (d) --> (a)
+                                                                               (a) --> (b)
+                                          
+                                          
+                                           
+                                          
+   -----------------             ------------------
+           logic      (d)             component         (c)
+     Action                      -------------------
+   -----------------  
+
+   Action :- a file where all the logics to update the state
+
+   Dispatch:- method used to dispatch the logic in action file when the component
+              need state updation.
+   
+   Reducer:- update the datas in js file according to the payload response get from
+             action file.
+
+
+  libraries to aply REDUX
+  -----------------------
+
+  1.REDUX
+  2.REACT-REDUX
+  3.REDUX-THUNK
+
+         for installing : npm redux react-redux redux-thunk
+
+createStore() :- method in REDUX used to create store in js file
+               - 2 arguments in this method
+               - one is reducer , two is a middleware
+
+               here middileware is used to make synchronous redux into asynchronous
+
+applyMiddileware() :- method in REDUX to apply middleware
+
+combineReducers() :- method in REDUX used to combine all the reducers in js file
+
+thunk() :- method in REDUX-THUNK used to create middleware
+
+
+1.create store
+2.apply the store in index.js       
+    - Provider :- it is a tag used to pass the store (react-redux)
